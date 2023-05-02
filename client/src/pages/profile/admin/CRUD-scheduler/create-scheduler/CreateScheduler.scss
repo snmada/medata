@@ -1,0 +1,167 @@
+@mixin button($background-color, $color, $border-color){
+    background-color: $background-color; 
+    border: none;
+    color: $color;
+    padding: 10px 70px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 2%;
+    cursor: pointer;
+    border: 1px solid $border-color;
+
+    &:hover{
+        box-shadow: rgba(70, 70, 93, 0.95) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+}
+
+.create-scheduler-container{
+    width: 100%;
+    height: 600px;
+    padding: 4%;
+
+    .title{
+        width: 100%;
+        height: max-content;
+        font-size: 22px;
+        border-left: 5px solid rgb(152, 0, 169);
+        padding-left: 2%;
+    }
+
+    .info-container{
+        width: 100%;
+        height: 300px;
+        display: flex;
+        margin-top: 4%;
+        margin-bottom: 4%;
+
+        .first-container{
+            width: 50%;
+            height: 300px;
+            padding: 4%;
+            border: 1px solid #a2a5ab;
+            border-bottom: none;
+            border-right: none;
+        }
+    
+        .second-container{
+            width: 50%;
+            height: 300px;
+            border: 1px solid #a2a5ab;
+            padding: 4%;
+            border-left: none;
+            border-top: none;
+        }
+    
+        .input-container{
+            display: flex;
+            position: relative;
+            height: 37px;
+            margin-bottom: 2.5rem;
+    
+            .input{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid rgb(70, 77, 81);
+                padding: 0;
+                font-size: .95rem;
+                color: #151111;
+                background-color: transparent;
+              
+                &:focus ~ label,
+                &:valid ~ label{
+                  transform: translateY(-37px);
+                  color: black;
+                  font-size: 14px;
+                  font-weight: 500;
+                  
+                }
+            }
+    
+            .label{
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: .95rem;
+                color: rgb(133, 141, 151);
+                pointer-events: none;
+                transition: 0.3s;
+            }
+
+            .error-icon{
+                display: initial;
+                position: absolute;
+                right: 3%;
+                top: 48%;
+                transform: translateY(-50%);
+                font-size: .99rem;
+                color: #E74147;
+                pointer-events: none;
+                visibility: visible;
+
+                &.active{
+                    visibility: hidden;
+                }
+
+              }
+
+              .error-message{
+                background: #E74147;
+                color: white;
+                font-size: 13px;
+                padding: 6px;
+                border-radius: 5px;
+                width: fit-content;
+                margin-left: auto;
+                position: absolute;
+                right:0;
+                top: 0%;
+                z-index: 1;
+                transform: translateY(-95%);
+                border: solid 1px #E74147;
+                transition-delay: 0.3s;
+                transition: background-color 1s ease-out;
+
+                &.active{
+                    visibility: hidden;
+                }
+  
+                 &:after{
+                    position: absolute;
+                    content: '';
+                    height: 15px;
+                    width: 15px;
+                    right: 13px;
+                    z-index: -1;
+                    transform: rotate(45deg);
+                    top: 62%;
+                    background-image: linear-gradient(135deg, transparent 70%, #E74147 50%);
+                }
+            }
+        }
+    }
+   
+    .button-container{
+        width: 100%;
+        height: max-content;
+
+        .save-button{
+            @include button(#e3c9e8, rgb(0, 0, 0), purple);
+            margin-right: 2%;
+        }
+
+        .reset-button{
+            @include button(#d1e9f5, rgb(3, 49, 135), rgb(3, 49, 135));
+            margin-right: 2%;
+        }
+
+        .cancel-button{
+            @include button(#e74147, rgb(255, 255, 255), #e74147);
+        }
+    }
+}

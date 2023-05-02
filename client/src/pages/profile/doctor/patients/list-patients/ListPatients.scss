@@ -1,0 +1,116 @@
+.list-patient{
+    width: 100%;
+    height: 650px;
+    padding: 4%;
+
+    .header-container{
+        width: 100%;
+        height: 100px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+
+        .search-patient{
+            width: 85%;
+            height: max-content;
+            display: flex;
+            padding-top: 30px;
+    
+            .icon{
+                margin-left: 1%;
+                font-size: 1.2rem;
+                color: rgb(114, 114, 114);
+            }
+    
+            input{
+                font-size: 18px;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                outline: none;
+                width: 40%;
+            }
+        }
+
+        .button{
+            width: 15%;
+            height: 100px;
+            text-align: center;
+            padding-top: 25px;
+
+            .add-button{
+                height: max-content;
+                padding: 12px 0px;
+                border: 1px solid #091351;
+                cursor: pointer;
+
+                .icon{
+                    color: #091351;
+                }
+                    
+                span{
+                    font-size: 16px;
+                    margin-left: 4%;
+                }
+
+                &:hover{
+                    box-shadow: rgba(70, 70, 93, 0.95) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+                }
+            }
+        }
+    }
+
+    .table-list{
+        width: 100%;
+        height: 450px;
+        background-color: rgb(255, 255, 255);
+        overflow: auto;
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-radius: 12px 12px 0 0;
+            font-size: 15px;
+            white-space: nowrap;
+    
+            td, th{
+                padding: 10px 25px;
+                text-align: center;
+                width: 100;
+            }
+        
+            th{
+                background-color: #e3e8f2;
+                color: #091351;
+                position: sticky;
+                top: 0;
+                z-index: 1;
+                font-weight: 500;
+            }
+    
+            tbody{
+                tr{
+                    &:nth-child(even){
+                        background-color: rgb(243, 243, 243);
+                    }
+
+                    &:hover{
+                        background-color: #d6dfdf;
+                    }
+
+                }
+            } 
+
+            .icon-eye{
+                color: #234179;
+                cursor: pointer;
+            }
+
+            .icon-trash{
+                color: #f53e43;
+                cursor: pointer;
+            }
+
+        }
+    }
+}
