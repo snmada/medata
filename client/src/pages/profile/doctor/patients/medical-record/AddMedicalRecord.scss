@@ -1,0 +1,111 @@
+.medical-record-container{
+    width: 100%;
+    height: 450px;
+    padding: 3%;
+    //background-color: antiquewhite;
+
+    .title-med{
+        width: 100%;
+        height: max-content;
+        padding: 1% 1% 1% 3%;
+        border-left: 2px solid black;
+        font-size: 20px;
+        margin-bottom: 2%;
+    }
+
+    .add-info{
+        width: 100%;
+        height: 400px;
+        overflow-y: auto;
+
+        table{
+            width: 100%;
+            height: 350px;
+            border-collapse: collapse;
+            border-spacing: 0;
+            table-layout: fixed;
+
+            td{
+                padding: 10px 10px;
+                width: 60px;
+                height: 40px;
+                font-size: 16px;
+                //border: 1px solid black;
+
+                &:first-child{
+                    width: 30px;
+                }
+
+                &:nth-child(n+2){
+                    width:120px;
+                }
+
+                textarea{
+                    width: 100%;
+                    height: 70px;
+                    border: 1px solid black;
+                    outline: none;
+                    border-bottom: 1px solid rgb(70, 77, 81);
+                    padding: 0;
+                    font-size: .95rem;
+                    color: #151111;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .actions{
+        width: 100%;
+        margin-top: 3%;
+
+        .button-save{
+            background-color: #c2ccf3; 
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 7px 40px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 17px;
+            margin-right: 2%;
+            cursor: pointer;
+            float: right;
+            border: 1px solid purple;
+
+            &.disabled{
+                background-color: #fefefe;
+                color: #243b3d;
+                border: 1px solid #243b3d;
+                cursor: default;
+            }
+
+            .icon{
+                margin-right: 15px;
+            }
+        }
+
+        .cancel{
+            background-color: #dadada; 
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 7px 40px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 17px;
+            margin-right: 2%;
+            cursor: pointer;
+            float: right;
+            border: 1px solid purple;
+
+            &:hover{
+                box-shadow: rgba(70, 70, 93, 0.95) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            }
+
+            .icon{
+                margin-right: 15px;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,418 @@
+:root{
+    --background-color-first: #D1D1D1;
+    --background-color-second: #D1D1D1;
+    --visibilityP: hidden;
+    --indentP: 0px;
+    --visibilityCP: hidden;
+    --indentCP: 0px;
+    --padding-top: 10%;
+}
+
+$background-color-first: var(--background-color-first);
+$background-color-second: var(--background-color-second);
+$visibilityP: var(--visibilityP);
+$indentP: var(--indentP);
+$visibilityCP: var(--visibilityCP);
+$indentCP: var(--indentCP);
+$padding-top: var(--padding-top);
+
+
+@mixin button($color-button){
+    weight: 300;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 16px;
+    padding: 6px 45px;
+    cursor: pointer;
+    outline: 0;
+    border: 1px solid black;
+    position: relative;
+    transition: 0.2s;
+
+    &::after{
+        content: "";
+        background-color: $color-button;
+        width: 100%;
+        z-index: -1;
+        position: absolute;
+        height: 100%;
+        top: 7px;
+        left: 7px;
+    }
+
+    &:hover:after{
+        top: 0px;
+        left: 0px;
+    }
+}
+
+@mixin icon-status($color){
+    color: $color;
+    font-size: 1.4em;
+    padding-left: 2.4em;
+    padding-right: 2.4em;
+}
+
+@mixin nth-child-after($background-color){
+    content: '';
+    background-color: $background-color;
+    height: 5px;
+    width: 115px;
+    display: block;
+    position: absolute;
+    right: -55px;
+    top: 57px;
+    z-index: -1;
+    transition: background-color 0.5s ease;
+}
+
+@mixin input($text-indent){
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(70, 77, 81);
+    padding: 0;
+    font-size: .95rem;
+    color: #151111;
+    text-indent: $text-indent;
+
+    &:focus ~ label,
+    &:valid ~ label{
+        transform: translateY(-37px);
+        color: black;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+@mixin eye-icon($visibility)
+{
+  display: initial;
+  position: absolute;
+  left: 0;
+  top: 48%;
+  transform: translateY(-50%);
+  font-size: .99rem;
+  color: black;
+  cursor: pointer;
+  z-index: 5;
+  visibility: $visibility;
+}
+
+@mixin icon-success($color)
+{
+  width: 100%;
+  height: max-content;
+  font-size: 6.5rem;
+  align-items: center;
+  text-align: center;
+  color: $color;
+  padding-bottom: 10%;
+}
+
+.register {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: radial-gradient(circle, #ffffff, #e4e6eb, #c4cfd6, #a4babe, #87a4a2);
+  
+    .container {
+      position: relative;
+      min-width: 750px;
+      box-shadow: rgba(0, 0, 0, 0.95) 0px 2px 5px -1px;
+      background-color: rgb(255, 255, 255);
+      height: 100vh;
+  
+      .inner-container {
+        position: absolute;
+        width: calc(100% - 3rem);
+        height: calc(100% - 3rem);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+  
+        .form-container {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          padding-left: 20%;
+          padding-right: 20%;
+  
+          .logo{
+            text-align: center;
+            margin-top: 5%;
+            margin-bottom: 10%;
+          }
+  
+          .title {
+            font-size: 20px;
+            padding-bottom: 3%;
+            font-weight: 400;
+            color: rgb(70, 77, 81);
+          }
+  
+          .req{
+            &.active{
+              display: none;
+            }
+          }
+  
+          .progress-bar {
+            text-align: center;
+            padding-top: 10%;
+  
+            .icon {
+              @include icon-status(#214151);
+              padding-bottom: 1em;
+            }
+  
+            .icon-check {
+              @include icon-status(#A2D0C1);
+            }
+  
+            .icon-dot {
+              @include icon-status(#D1D1D1);
+            }
+  
+            ul {
+              list-style-type: none;
+  
+              li {
+                display: inline-block;
+                position: relative;
+  
+                &:nth-child(1){
+                  &:after{
+                    @include nth-child-after($background-color-first);
+                  }
+                }
+  
+                &:nth-child(2){
+                  &:after{
+                    @include nth-child-after($background-color-second);
+                  }
+                }
+              }
+            }
+          }
+  
+          .form{
+            padding-top: $padding-top;
+            
+  
+            .body{
+              width: 100%;
+              height: 150px;
+  
+              .input-container{
+                display: flex;
+                position: relative;
+                height: 37px;
+                margin-bottom: 2.5rem;
+    
+                .input{
+                  @include input(0px);
+                }
+  
+                .input-pass{
+                  @include input($indentP);
+                }
+  
+                .input-confirmPass{
+                 @include input($indentCP);
+                }
+  
+                input[type=password]::-ms-reveal,
+                input[type=password]::-ms-clear
+                {
+                    display: none;
+                }
+    
+                .label{
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  font-size: .95rem;
+                  color: rgb(133, 141, 151);
+                  pointer-events: none;
+                  transition: 0.3s;
+                  
+                }
+  
+                .error-icon{
+                  display: initial;
+                  position: absolute;
+                  right: 3%;
+                  top: 48%;
+                  transform: translateY(-50%);
+                  font-size: .99rem;
+                  color: #E74147;
+                  pointer-events: none;
+  
+                }
+  
+                .error-message{
+                  background: #E74147;
+                  color: white;
+                  font-size: 13px;
+                  padding: 6px;
+                  border-radius: 5px;
+                  width: fit-content;
+                  margin-left: auto;
+                  position: absolute;
+                  right:0;
+                  top: 0%;
+                  z-index: 1;
+                  transform: translateY(-95%);
+                  border: solid 1px #E74147;
+                  transition-delay: 0.3s;
+                  transition: background-color 1s ease-out;
+    
+                    &:after{
+                      position: absolute;
+                      content: '';
+                      height: 15px;
+                      width: 15px;
+                      right: 11px;
+                      z-index: -1;
+                      transform: rotate(45deg);
+                      top: 62%;
+                      background-image: linear-gradient(135deg, transparent 70%, #E74147 50%);
+      
+                    }
+                }
+  
+                .eye-icon-pass{
+                  @include eye-icon($visibilityP);
+                }
+  
+                .eye-icon-confrimPass{
+                  @include eye-icon($visibilityCP);
+                }
+              } 
+            }
+  
+            .pass-requirements{
+              width: 100%;
+              height: max-content;
+              padding-bottom: 4%;
+            
+              ul{
+                padding-top:1%;
+                margin-left: 60px;
+              }
+  
+              p{
+                font-size: 15px;
+              }
+  
+              li{
+                font-size: 15px;
+              }
+            }
+  
+            .message{
+              width: 100%;
+              background-color: #fff3cd;
+              color: #76662a;
+              padding: 3%;
+              font-size: 15px;
+            }
+  
+            .form-footer{
+              width: 100%;
+              height: 130px;
+  
+              .register-link{
+                padding-top: 5%;
+                font-size: 16px;
+                padding-bottom: 5%;
+              }
+  
+              .button{
+                padding-top: 4%;
+              }
+              .button-prev{
+                @include button(#d8e7df);
+              }
+              .button-next{
+                float: right;
+                @include button(#9eb7b5);
+              }
+            }
+          }
+
+          span{
+            color: crimson;
+            font-size: 18px;
+          }
+  
+          .success-container{
+            padding-top: 20%;
+            width: 100%;
+            height: max-content;
+  
+            .text{
+              width: 100%;
+              height: max-content;
+              align-items: center;
+              text-align: center;
+              padding-bottom: 20%;
+              font-size: 18px;
+            }
+  
+            .loader{
+              width: 100%;
+              height: max-content;
+              align-items: center;
+              text-align: center;
+              
+              > div{
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: #fff;
+                border-radius: 50%;
+                display: inline-block;
+                animation: 1.5s bounce infinite ease-in-out both;
+                margin: 3px;
+              }
+  
+              .f-dot{
+                animation-delay: -0.30s;
+              }
+  
+              .s-dot{
+                animation-delay: -0.15s;
+              }
+  
+              @keyframes bounce{
+                0%, 80%, 100%{
+                  transform: scale(0);
+                  background-color: #5269dc;
+                }
+                40%{
+                  transform: scale(1);
+                  background-color: #dc9752;
+                }
+              }
+            }
+  
+            .icon-check{
+              @include icon-success(#7ECA9C);
+            }
+  
+            .icon-xmark{
+              @include icon-success(#e05e36);
+            }
+          }
+        }
+      }
+    }
+ }
+  

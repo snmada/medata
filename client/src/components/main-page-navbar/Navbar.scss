@@ -1,0 +1,76 @@
+
+.navbar{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+
+    .logo{
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        left: 10%;
+        width: auto;
+        height: auto;
+        z-index: 1;
+    }
+
+    .back-profile{
+        right: 10%;
+        width: auto;
+        font-size: 16px;
+        color:black;
+        position: absolute;
+        border-radius: 25px;
+        padding: 7px 25px;
+        text-decoration: none;
+        background-image: linear-gradient(to bottom, #142f43, #102a36, #11242a, #141e1f, #151717);
+        color: #FFFFFF;
+
+        .icon{
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        &:hover{
+            background-color: #1f2e47;
+            color: white;
+            .icon{
+                color:white;
+            }
+        }
+
+    }
+
+    .login-link{
+        right: 10%;
+        width: auto;
+        font-size: 16px;
+        color:black;
+        position: absolute;
+        border: 1px solid black;
+        border-right: none;
+        border-left: none;
+        padding: 5px 25px;
+        text-decoration: none;
+
+        .icon{
+            color: #1f2e47;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        &:hover{
+            background-color: #1f2e47;
+            color: white;
+            .icon{
+                color:white;
+            }
+        }
+    }
+}

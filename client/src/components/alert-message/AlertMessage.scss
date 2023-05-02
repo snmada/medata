@@ -1,0 +1,56 @@
+
+@mixin container($background-color, $color, $border-color, $icon-color,){
+    width: 30%;
+    height: 10vh;
+    background-color: $background-color;
+    z-index: 5;
+    color: $color;
+    right:0;
+    position: absolute;
+    border: 1px solid $border-color;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    padding-top: 1%;
+    padding-right: 1%;
+
+    .close{
+        width: 100%;
+        height: max-content;
+        position: relative;
+        margin-bottom: 3%;
+        font-size: 0.8rem;
+        .icon-xmark{
+            right: 0;
+            position: absolute;
+            cursor: pointer;
+        }
+    }
+
+    .alert-message{
+        width: 100%;
+        height: max-content;
+        position: absolute;
+        text-align: center;
+
+    }
+
+    .icon{
+        margin-right: 4%;
+        color: $icon-color;
+        font-size: 1.4rem;
+        cursor: pointer;
+    }
+}
+
+.alert-container-success{
+    @include container(rgba(198, 239, 185, 0.922), rgb(5, 56, 5), rgb(2, 100, 2), rgb(7, 100, 7));
+}
+
+.alert-container-error{
+    @include container(rgba(255, 234, 218, 0.922), rgb(220, 33, 0), rgb(220, 33, 0), rgb(220, 33, 0));
+}

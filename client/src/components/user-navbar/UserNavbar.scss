@@ -1,0 +1,116 @@
+.usernavbar{
+    .nav{
+        background-image: radial-gradient(circle, #ffffff, #e4e6eb, #c4cfd6, #a4babe, #87a4a2);
+        background: #a4babe;
+        width: 100%;
+        height: 60px;
+        position: fixed;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 0px 8px 0.5px #000000;
+
+        .logo{
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            left: 3%;
+            width: max-content;
+            height: max-content;
+            z-index: 1;
+        }
+
+        .user{
+            right: 6%;
+            width: auto;
+            font-size: 16px;
+            color:#142F43;
+            position: absolute;
+            border-right: none;
+            border-left: none;
+            padding: 5px 25px;
+            text-decoration: none;
+            border-bottom: 1px solid #142F43;
+            .icon{
+                color: #142F43;
+                font-size: 1.2rem;
+                margin-right: 15px;
+            }
+        }
+
+        .logout{
+            right: 1%;
+            width: auto;
+            font-size: 16px;
+            position: absolute;
+            border-right: none;
+            border-left: none;
+            padding: 5px 25px;
+            text-decoration: none;
+            .icon{
+                color: #142F43;
+                font-size: 1.2rem;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .sidebar{
+        width: 240px;
+        height: 100vh;
+        background-image: linear-gradient(to bottom, #a4babe, #bccad1, #d4dbe1, #ebecf0, #ffffff);
+        position: fixed;
+        top: 7%;
+        left: 0px;
+        transition: 0.2s;
+        transition-property: left;
+
+        #active{
+            background-color: #ffffff;
+            color: #142F43;
+            .icon{
+                color: #142F43;
+            }
+        }
+
+        .component{
+            padding-top: 25%;
+
+            .element{
+                height: 70px;
+                list-style-type: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                margin-left: 0px;
+                transition: 0.6s;
+                transition-property: background-color;
+                color: #142F43;
+
+                &:hover{
+                    background-color: #8eaab4;
+                    color: #142F43;
+
+                    .icon{
+                        color: #142F43;
+                    }
+                }
+
+                .icon{
+                    flex: 28%;
+                    display: grid;
+                    place-items: center;
+                    font-size: 1.1rem;     
+                    color: #142F43;
+                }
+                    
+                .title{
+                    flex: 65%;
+                    font-size: 19px;
+                }
+            }
+        }
+    }
+}
