@@ -32,6 +32,3 @@ The scheduler has the ability to create appointments, cancel them and manage pat
 ## Doctor Account
 
 The doctor has the capability to view their appointments, manage medical records by adding or deleting them and also download medical files in PDF format. 
-
-
-Link to Wireframe: https://www.figma.com/file/PsyV64RitwtTRFq5Eom1vt/MEDATA?node-id=0%3A1&t=7eIYGzCBtYmE5EGg-1
